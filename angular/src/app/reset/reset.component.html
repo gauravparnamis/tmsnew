@@ -1,0 +1,30 @@
+<body>
+<div class="formcontainer">
+  <div class="formbody">
+      <form [formGroup]="ResetForm" action="/forgot" method="POST" style="width:100%;">
+          <div class="header">Reset Password</div>
+          <div>
+              <mat-form-field style="width:100%;">
+                  <input type="password" formControlName="password" matInput placeholder="enter new Password">
+              </mat-form-field>
+              <span *ngIf="isValid('password')">Please enter your new password.</span>
+         
+            <mat-form-field style="width:100%;">
+                <input type="password" formControlName="cnfPassword" matInput placeholder="confirm Password">
+            </mat-form-field>
+            <span *ngIf="isValid('password')">Re-enter your password.</span>
+            <span *ngIf="(ResetForm.value.password !== ResetForm.value.cnfPassword)">Password must be same.</span>
+        </div>
+          <span class="text-danger" *ngIf="invalidLogin">Please enter Valid Email.</span>
+          <div style="margin-top:40px;">
+              <button class="form-btn" (click)="ResetPass()">Save Password</button>
+          </div>
+      </form>
+  </div>
+
+  <div>
+   
+  </div>
+</div>
+
+</body>

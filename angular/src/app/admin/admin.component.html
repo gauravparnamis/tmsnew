@@ -1,0 +1,150 @@
+<style>
+.form-btn-hollows[_ngcontent-c1] {
+  font-family: Poppins-Medium;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: white;
+  background-color: #100d10;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 60%!important;
+  height: 36px;
+  border-radius: 25px;
+  border: 1px solid #040404!important;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+
+    <div class="sidenav">
+      <img style="    width: 100%;
+      " src="assets/images/startbit-logo-icon.png">
+
+  <a routerLink="../admin">Users</a>
+  <a routerLink="../Tasks">Tasks</a>
+  <a routerLink="../adminlist">Admin List</a>
+  
+</div>
+
+
+<div class="topnav" id="myTopnav">
+    
+    <button class="float-right" mat-raised-button color="primary" (click)="logout()">Logout</button>
+
+  </div>
+  </nav>
+
+  <div class="main">
+<div class="container-fluid">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-sm-4">
+      <button class="form-btn-hollows" style="  width: 60%!important;
+      height: 36px;
+      border-radius: 25px;
+      border: 1px solid #040404; background-color: black; color: white; margin: 10px" routerLink="../newuser/-1">Add New User</button>
+    </div>
+
+      <div class="col-xs-12 col-md-4 col-sm-4">
+
+      <!-- <button class="form-btn-hollow" routerLink="../taskCreation">Add New Task</button> -->
+    </div>
+  </div>
+
+  </div>
+
+  <div class="example-container mat-elevation-z8 ">
+
+      <mat-table [dataSource]="dataSource" matSort style="width:100%" >
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> S.no. </mat-header-cell>
+          <mat-cell *matCellDef="let row; let i = index  "> {{i + 1 + pageindex  }} </mat-cell>
+        </ng-container>
+    
+        <!-- Progress Column -->
+        <ng-container matColumnDef="fname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.fname | titlecase}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="lname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.lname | titlecase}} </mat-cell>
+        </ng-container>
+    
+        <!-- Color Column -->
+        <ng-container matColumnDef="dob">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> DOB </mat-header-cell>
+          <mat-cell *matCellDef="let row" > {{row.dob | date: 'dd-MM-yyyy'}} </mat-cell>
+        </ng-container>
+    
+    
+     <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row" > {{row.email}} </mat-cell>
+        </ng-container>    
+        
+        
+        <ng-container matColumnDef="Salary">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+                <mat-cell *matCellDef="let row" > {{row.Salary |  currency:'INR' }} </mat-cell>
+              </ng-container>   
+    
+      <ng-container matColumnDef="phone">
+         <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let row" > {{row.phone}} </mat-cell>
+      </ng-container>  
+
+      <ng-container matColumnDef="myimage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
+       <mat-cell *matCellDef="let row" ><img class="profileimg" src="{{imageshow + row.myimage}}"></mat-cell>
+     </ng-container>  
+    
+
+      <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width:20%"> &nbsp; &nbsp; Action </mat-header-cell>
+           <mat-cell *matCellDef="let row" style="max-width:20%"> 
+              <button style="margin-left: 10px;" (click)="onDelete(row._id,i)" class="btndel mat-buttons"><i class="fa fa-trash"></i></button> | 
+              <button routerLink="../newuser/{{row._id}}" isedit= "true" class="btnedit mat-buttons"><i class="fa fa-edit"></i></button>
+          </mat-cell>
+         </ng-container>              
+    
+    
+    
+         <td>  <button (click)="onDelete(data._id,i)" class="btndel"><i class="fa fa-trash"></i></button></td>
+    
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="changepage($event)"></mat-paginator>
+    </div>
+    
+</div>
+</div>
+
+
+
+
+

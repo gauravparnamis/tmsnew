@@ -1,0 +1,56 @@
+<div class="formcontainer">
+    <div class="formbody">
+        <form style="width:100%;" [formGroup]="myForm">
+            <div class="header">Register</div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="text" formControlName="email" matInput placeholder="Email" id="email">
+                </mat-form-field>                
+                <div *ngIf="f.email.touched && f.username.errors" >
+                    <span *ngIf="f.email.errors?.required">Email is a Mandatory Field.</span>
+                    <span *ngIf="f.email.errors?.pattern">Please Enter Valid Email.</span>
+                    </div>
+            </div>
+            <div> 
+                <mat-form-field style="width:100%;">
+                    <input type="text" formControlName="username"  pattern="[A-Za-z]{3,15}" matInput placeholder="Username" id="user">
+                </mat-form-field>
+                <div *ngIf="f.username.touched && f.username.errors" >
+                        <span *ngIf="f.username.errors.required">Username is a Mandatory Field.</span>
+                        <span *ngIf="f.username.errors.pattern">Username Must contain at least 3 letters and Number are not allowed..</span>
+                        </div>
+            </div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="password" formControlName="password" 
+                  matInput placeholder="Password" id="pass" [ngClass]="{ 'is-invalid':f.password.errors }">
+                </mat-form-field>
+                
+                <div *ngIf="f.password.touched && f.password.errors">
+                <span *ngIf="f.password.errors.required">Password is a Mandatory Field.</span>
+                <span *ngIf="f.password.errors.pattern">Password must contain one Capital Letter with small letters and Special Symbol.</span>
+                </div>
+            </div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="password" formControlName="cnfpass"  matInput placeholder="Re-enter Password" id="cnfpass">
+                </mat-form-field>
+                <span *ngIf="isValid('cnfpass')">Password and confirm password should match</span>
+            </div>
+            <div style="margin-top:20px;">
+                <button class="form-btn" (click)="register()">Register</button>
+            </div>
+            <div>
+                    <div style="padding-top: 20px;">
+                        <button class="form-btn-hollow" (click)="movetologin()">Back</button>
+                    </div>
+                </div>
+
+            <div style="text-align: center;">                
+                {{successMessage}}
+            </div>
+        </form>
+    </div>
+
+   
+</div>

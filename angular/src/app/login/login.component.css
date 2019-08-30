@@ -1,0 +1,59 @@
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: 'assets/images/jtdvGo.jpg'!important;
+
+}
+
+.formbody{
+    display: flex;
+    width: 325px;
+    min-height: 200px;
+    background-color: white;
+    box-shadow:0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+form-btn-hollow {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: white;
+    background-color: turquoise;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%!important;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid turquoise;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+div > span {
+    font-size: 0.75rem;
+    color: firebrick;
+}
+
+
+span.text-danger.ng-star-inserted {
+    color: red;
+}
+
+
+  .header{
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;      
+  }

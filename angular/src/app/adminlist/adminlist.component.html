@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+
+    <div class="sidenav">
+      <img src="assets/images/startbit-logo-icon.png">
+
+  <a routerLink="../admin">Users</a>
+  <a routerLink="../Tasks">Tasks</a>
+  <a routerLink="../Admins">Admin List</a>
+  
+</div>
+
+
+<div class="topnav" id="myTopnav">
+    <span>Admin panel</span>
+    
+    <button class="float-right" mat-raised-button color="primary" (click)="logout()">Logout</button>
+
+  </div>
+  </nav>
+
+  <div class="main">
+<div class="container-fluid">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-sm-4">
+    </div>
+
+      <div class="col-xs-12 col-md-4 col-sm-4">
+
+      <!-- <button class="form-btn-hollow" routerLink="../taskCreation">Add New Task</button> -->
+    </div>
+  </div>
+
+  </div>
+
+  <div class="example-container mat-elevation-z8" style="margin-top: 30px;">
+
+      <mat-table [dataSource]="dataSource" matSort style="width:100%">
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="_id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width:250px;"> S.no. </mat-header-cell>
+          <mat-cell *matCellDef="let row; let i = index" style="min-width:250px;"> {{row._id }} </mat-cell>
+        </ng-container>
+    
+        <!-- Progress Column -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header style="min-width:300px;">Email </mat-header-cell>
+          <mat-cell *matCellDef="let row" style="min-width:300px;"> {{row.email | titlecase}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="username">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> User Name </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.username | titlecase}} </mat-cell>
+        </ng-container>
+    
+        
+        <ng-container matColumnDef="creation_dt">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Registration-Date </mat-header-cell>
+                <mat-cell *matCellDef="let row" > {{row.creation_dt | date: 'dd-MM-yyyy' }} </mat-cell>
+              </ng-container>   
+    
+
+       <ng-container matColumnDef="role">
+          <mat-header-cell 
+          *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.role}} </mat-cell>
+       </ng-container>    
+              
+     
+    
+      <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width:20%"> &nbsp; &nbsp; Action </mat-header-cell>
+           <mat-cell *matCellDef="let row" style="max-width:20%"> 
+              <button style="margin-left: 10px;" (click)="giverole(row._id,i);" class="btndel mat-buttons"><i class="fa fa-check"></i></button> 
+              <!-- <button routerLink="../newuser/{{row._id}}" isedit= "true" class="btnedit mat-buttons"><i class="fa fa-edit"></i></button> -->
+          </mat-cell>
+         </ng-container>              
+    
+    
+    
+    
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="changepage($event)"></mat-paginator>
+    </div>
+    
+</div>
+</div>
+
+
+
+
+

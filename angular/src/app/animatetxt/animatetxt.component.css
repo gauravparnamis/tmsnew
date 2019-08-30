@@ -1,0 +1,115 @@
+container-fluid{
+    background-color: black!important;
+}
+h1{
+    font-weight: bold;
+}
+
+h1 {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  -webkit-animation: mymove 5s; 
+  animation: mymove 5s;
+  rotate: mymove 10s;
+  margin-top:50%;
+  transition: color .5s ease;
+  scale: 5s;
+  
+}
+
+h2{
+    animation-name: example;  
+    animation-duration: 3s;  
+    animation-delay: 2s;  
+    animation-fill-mode: both;   
+    -webkit-animation-name: example;    
+    -webkit-animation-duration: 3s;    
+    -webkit-animation-delay: 2s;   
+    -webkit-animation-fill-mode: both;   
+}
+span {
+  display: inline-block;   
+  text-shadow: 0 0 0 whitesmoke;  
+  animation: smoky 5s 3s both;    
+  font-size: 20px;   
+} 
+
+span:nth-child(even){
+  animation-name: smoky-mirror;
+}
+
+
+@-webkit-keyframes example {
+    from {top: 0px; background-color: yellow;}
+    to {top: 200px; background-color: blue;}
+  }
+  
+  @keyframes example {
+    from {top: 0px; background-color: yellow;}
+    to {top: 200px; background-color: blue;}
+  }
+
+#div1 {-webkit-animation-timing-function: linear;}
+#div2 {-webkit-animation-timing-function: ease;}
+#div3 {-webkit-animation-timing-function: ease-in;}
+#div4 {-webkit-animation-timing-function: ease-out;}
+#div5 {-webkit-animation-timing-function: ease-in-out;}
+
+#div1 {animation-timing-function: linear;}
+#div2 {animation-timing-function: ease;}
+#div3 {animation-timing-function: ease-in;}
+#div4 {animation-timing-function: ease-out;}
+#div5 {animation-timing-function: ease-in-out;}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+  from {bottom: 350px; bottom: 160;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+  from {bottom: 400px; bottom:300px; color:lightslategrey; color-interpolation-filters: linearRGB}
+  to {bottom: 400px; color: white; -webkit-animation:colorchange 5s white;   opacity: 0; text-shadow: 0px 0px 1px rgba(255,255,255,0.1) ;
+    
+      transform:translate3d(0rem,0rem,0)
+      skewX(0deg) 
+      scale(1); 
+    }
+     /* 60% {
+      text-shadow: 0 0 60px whitesmoke;
+    } */
+}
+
+
+@keyframes smoky {
+  60% {
+    bottom: 400px; bottom:200px; color:lightslategrey; color-interpolation-filters: linearRGB; 
+    text-shadow: 0 0 40px rgb(145, 134, 134);
+  }
+  to {
+    transform:
+      translate3d(15rem,-8rem,0)
+      rotate(-40deg)
+      skewX(70deg)
+      scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;}
+  to {
+    transform:
+      translate3d(14rem,-8rem,0) 
+      rotate(-10deg)   
+      skewX(-70deg)  
+      scale(2);   
+     text-shadow: 0 0 20px whitesmoke;  
+    opacity: 0; 
+  } 
+} 

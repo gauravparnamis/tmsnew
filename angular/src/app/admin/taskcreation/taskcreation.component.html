@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <div class="sidenav">
+      <img src="assets/images/startbit-logo-icon.png">
+
+  <a routerLink="../../admin">Users</a>
+  <a routerLink="../../Tasks">Tasks</a>
+  <a routerLink="../adminlist">Admin List</a>                
+
+  
+</div>
+
+<div style="overflow: hidden;background-color: #187fe8;width: 100%; height: 60px;"  id="myTopnav">
+    
+    <button class="float-right" style="margin-top: 10px; margin-right: 10px" mat-raised-button color="primary" (click)="logout()">Logout</button>
+
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <div class="main">
+
+  <script type="text/javascript">
+    function JSalert(){
+        swal("A Basic JS alert by a plug-in");
+    }
+    </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body style="margin:0;">
+       
+<div class="container-fluid">
+    
+    <div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12">
+    <div class="alert alert-danger" *ngIf="errormsg">
+        {{errormsg}}
+    </div>
+
+    <form #userForm="ngForm" *ngIf = "!submitted" novalidate>        
+      
+
+        <div class="form-group">
+        <mat-form-field class="example-full-width" class="col-12 px-0"> 
+            <input type="text" matInput placeholder="Task ID" required #tid="ngModel" [class.is-invalid] = "tid.invalid && tid.touched" name="tid" [(ngModel)]="userModel.tid">
+         </mat-form-field>
+            <small class="text-danger" [class.d-none]="tid.valid || tid.untouched"> ID is required</small>
+        </div>   
+  
+  
+        <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+                <input type="text" matInput placeholder="taskname" required #taskname="ngModel" [class.is-invalid] = "taskname.invalid && taskname.touched" name="taskname" [(ngModel)]="userModel.taskname">
+             </mat-form-field>
+                <small class="text-danger" [class.d-none]="taskname.valid || taskname.untouched"> title is required</small>
+            </div>   
+            <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+                <textarea matInput placeholder="Description" required #desc="ngModel" [class.is-invalid] = "desc.invalid && desc.touched" name="desc" [(ngModel)]="userModel.desc"></textarea>
+                <small class="text-danger" [class.d-none]="desc.valid || desc.untouched">Description is required</small>
+              </mat-form-field>
+            </div>
+        <!-- <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+            <input type="text" matInput placeholder="Description" required #desc="ngModel" [class.is-invalid] = "desc.invalid && desc.touched" name="desc" [(ngModel)]="userModel.desc">
+            </mat-form-field>
+            <small class="text-danger" [class.d-none]="desc.valid || desc.untouched">Description is required</small>
+        </div>    -->
+        <div class="form-group">
+        <mat-form-field class="example-full-width">
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required #sdata="ngModel" [class.is-invalid] = "sdata.invalid && sdata.touched" name="sdata"  placeholder="Choose Start date" name="sdata" [(ngModel)]="userModel.sdata">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <small class="text-danger" [class.d-none]="sdata.valid || sdata.untouched">start Date is Required</small>
+  
+        </div>
+  
+        <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" required #ldata="ngModel" [class.is-invalid] = "sdata.invalid && sdata.touched" name="ldata"  placeholder="Choose End date" name="ldata" [(ngModel)]="userModel.ldata">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <small class="text-danger" [class.d-none]="ldata.valid || ldata.untouched">End Date is Required</small>
+      
+            </div>
+            
+            
+            <div class="form-group" required>
+                <mat-form-field class="example-full-width">  
+                    <mat-select placeholder="Select Employee" (change)=onChange(toppings.value) #assignemp="ngModel" name="assignemp" [(ngModel)]="userModel.assignemp" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value.fname : ''}}
+                        <span *ngIf="assignemp.value?.length > 1" class="example-additional-selection">
+                          (+{{assignemp.value.length }} {{assignemp.value?.length === 2 ? 'other' : 'others'}})
+                        </span>  
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [id]="topping._id" [value]="topping._id">{{topping.fname}}</mat-option>
+                    </mat-select>
+             </mat-form-field>                
+            </div>
+  
+            <div>
+                <div class="col-xs-4 col-md-12 col-sm-2">
+                    <button class="btn btn-primary" (click)="onSubmit()" type="button" *ngIf="!editbtn">Create Task</button>
+                    <button class="btn btn-danger" style="margin-left: 10px;" type="reset" (click)="reset()" *ngIf="!editbtn">Reset</button></div>
+                    <button style="margin-left: 10px; margin-bottom: 20px;"  [disabled]="userForm.form.invalid" class="btn btn-primary" (click)= "onEdit()" *ngIf="editbtn">Save Changes</button>
+  
+            </div>
+  </form>
+  
+<button  [disabled]="userForm.form.invalid" class="btn btn-primary" (click)= "onEdit(); ngOnInit()" *ngIf="isedit">Save</button>
+
+</div>
+</div>
+</div>
+  
+
+
+
+
+
+
+
+

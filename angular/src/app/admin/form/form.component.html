@@ -1,0 +1,247 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <div class="sidenav">
+      <img src="assets/images/startbit-logo-icon.png">
+
+  <a routerLink="../../admin">Users</a>
+  <a routerLink="../../Tasks">Tasks</a>
+  <a routerLink="../../adminlist">Admin List</a>
+
+  
+</div>
+
+
+<!--  -->
+
+<div class="topnav" id="myTopnav" style="height: 10%;">
+    <span style="font-size: 30px; font-weight: bold; color: white">Add New User</span>
+    
+    <button class="float-right" mat-raised-button color="primary" style="margin-top: 10px; margin-right: 10px;" (click)="logout()">Logout</button>
+
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <div class="main">
+
+
+  <script type="text/javascript">
+    function JSalert(){
+        swal("A Basic JS alert by a plug-in");
+    }
+    </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body style="margin:0;">
+       
+<div class="container-fluid">
+    
+    <div class="row">
+    <div class="col-sm-12 col-md-12 col-xs-12">
+    <div class="alert alert-danger" *ngIf="errormsg">
+        {{errormsg}}
+    </div>
+
+    <form style="box-shadow: 0px 0px 10px #bbd7f5;" #userForm="ngForm" *ngIf = "!submitted" (ngSubmit)="onSubmit(userForm)" novalidate>        
+        
+
+        <div class="form-group">
+        <mat-form-field class="example-full-width" class="col-12 px-0">
+            <input type="text" matInput placeholder="First Name" required #fname="ngModel" [class.is-invalid] = "fname.invalid && fname.touched" name="fname" [(ngModel)]="userModel.fname">
+         </mat-form-field>
+            <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is required</small>
+        </div>   
+        
+        <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+            <input type="text" matInput placeholder="Last Name" required #lname="ngModel" [class.is-invalid] = "lname.invalid && lname.touched" name="lname" [(ngModel)]="userModel.lname">
+            </mat-form-field>
+            <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last Name is required</small>
+        </div>   
+
+        
+        <div class="form-group">
+        <mat-form-field class="example-full-width" >
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required #dob="ngModel" [class.is-invalid] = "dob.invalid && dob.touched" name="dob"  placeholder="Choose a DOB" name="dob" [(ngModel)]="userModel.dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">DOB is Required</small>
+
+        </div>
+
+
+        <!-- <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+                <input type="date" matInput placeholder="Enter DOB" required #dob="ngModel" [class.is-invalid] = "dob.invalid && dob.touched" name="dob" [(ngModel)]="userModel.dob">
+            </mat-form-field>
+            <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">DOB is Required</small>
+        </div> -->
+
+
+     
+
+    
+            <div class="form-group">
+                <mat-form-field class="example-full-width" class="col-12 px-0">
+              <input type="email" matInput placeholder="Enter your Email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [class.is-invalid]=" email.touched && email.invalid" name="email" [(ngModel)]="userModel.email">
+            </mat-form-field>
+                <div *ngIf="email.errors && email.touched && email.invalid">
+                    <small class="text-danger" *ngIf = "email.errors.required">Email is required</small>
+                    <small class="text-danger" *ngIf = "email.errors.pattern">Email must cantain @ symbol</small>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                    <mat-form-field class="example-full-width" class="col-12 px-0">
+                      <input type="password" id="myInput" [type]="hideP ? 'password' : 'text'" matInput placeholder="Enter your password" required #password="ngModel" ng-pattern ="(/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/)" [class.is-invalid]=" password.touched && password.invalid" name="password" [(ngModel)]="userModel.password">
+                      <mat-icon matSuffix (click)="hideP = !hideP">{{hideP ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    </mat-form-field>
+                    <div *ngIf="password.errors && password.touched && password.invalid">
+                        <small class="text-danger" *ngIf = "password.errors.required">Password is required</small>
+                        <small class="text-danger" *ngIf = "password.errors.pattern">Password must cantain Special symbol</small>
+                    </div>
+              </div>
+
+
+        <div class="form-group">
+                <mat-form-field class="example-full-width" class="col-12 px-0">
+                    <input type="number" matInput placeholder="Enter your Salary" required #Salary="ngModel" [class.is-invalid] = "Salary.invalid && Salary.touched" name="Salary" [(ngModel)]="userModel.Salary">
+                </mat-form-field>
+                <small class="text-danger" [class.d-none]="Salary.valid || Salary.untouched">Salary is Required</small>
+            </div>
+
+
+        <div class="form-group">
+            <mat-form-field class="example-full-width" class="col-12 px-0">
+            <input maxlength="10" matInput placeholder="Enter your Mobile No." 
+            type="tel" #phone="ngModel" pattern="^\d{10}$" 
+            required [class.is-invalid] ="phone.invalid && phone.touched" name="phone" 
+            [(ngModel)]="userModel.phone">
+        </mat-form-field>
+            <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required must be of 10 digits</small>
+           
+            <div *ngIf="phone.errors && phone.touched && phone.invalid">
+                <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+                <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be of 10</small>
+            </div>
+        </div>   
+        <div class="form-group">
+        <mat-radio-group aria-label="Select an option" required  [class.is-invalid] = "dob.invalid && dob.touched" name="gender" [(ngModel)]="userModel.gender">
+            <span style="margin-right:10px;">Gender:</span>
+            <mat-radio-button style="margin-right:8px;"  value="Male">Male </mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="img-thumbnail" style="width: 35%; border-radius: 50%;
+        ">
+          <img *ngIf="userModel.myimage" [src]="imageshow+'/'+userModel.myimage">
+          <img *ngIf="(!(userModel.myimage) && (showImage))" [src]="showImage">
+        </div>
+
+        <div class="form-group">
+        <input type="file" required name="myimage" (change)="onfileSelected($event)">
+        </div>
+        
+
+
+        <div class="col-xs-4 col-md-12 col-sm-2 px-0">
+    <button style="margin-left: 10px;" [disabled]="userForm.form.invalid" class="btn btn-primary" type="submit" *ngIf="!isedit">Submit</button>
+    <button class="btn btn-danger" style="margin-left: 10px;" type="reset" (click)="reset()" *ngIf="!isedit">Reset</button></div>
+    
+
+
+</form>
+<button style="margin-left: 27%; margin-bottom: 5px;" [disabled]="userForm.form.invalid" class="btn btn-primary" (click)= "onEdit(); ngOnInit()" *ngIf="isedit">Save</button>
+
+</div>
+</div>
+</div>
+  
+
+
+<!-- <div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort style="width:100%">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> S.no. </mat-header-cell>
+      <mat-cell *matCellDef="let row; let i = index  "> {{i + 1 + pageindex  }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Fname </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.fname | titlecase}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Lname </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.lname | titlecase}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dob">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> DOB </mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row.dob | date: 'dd-MM-yyyy'}} </mat-cell>
+    </ng-container>
+
+
+ <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row" > {{row.email}} </mat-cell>
+    </ng-container>    
+    
+    
+    <ng-container matColumnDef="Salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+            <mat-cell *matCellDef="let row" > {{row.Salary |  currency:'INR' }} </mat-cell>
+          </ng-container>   
+
+  <ng-container matColumnDef="phone">
+     <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+    <mat-cell *matCellDef="let row" > {{row.phone}} </mat-cell>
+  </ng-container>  
+
+  <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> gender </mat-header-cell>
+       <mat-cell *matCellDef="let row" > {{row.gender}} </mat-cell>
+     </ng-container>
+     
+     <ng-container matColumnDef="myimage">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+     <mat-cell *matCellDef="let row"><img src="{{imageshow + row.myimage}}"> </mat-cell>
+   </ng-container>
+  
+  <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="max-width:20%"> &nbsp; &nbsp; Action </mat-header-cell>
+       <mat-cell *matCellDef="let row" style="max-width:20%"> 
+          <button (click)="onDelete(row._id,i)" class="btndel mat-buttons"><i class="fa fa-trash"></i></button> | 
+          <button (click)="userModel=row; isedit= true" class="btnedit mat-buttons"><i class="fa fa-edit"></i></button>
+      </mat-cell>
+     </ng-container>              
+
+
+
+     <td>  <button  (click)="onDelete(data._id,i)" class="btndel"><i class="fa fa-trash"></i></button></td>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
+  (page)="changepage($event)"></mat-paginator>
+</div> -->
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
+
+
+
+
+
+
+

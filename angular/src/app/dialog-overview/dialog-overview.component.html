@@ -1,0 +1,15 @@
+<div *ngIf="messageToPrint == null" class="text-center">
+    <h1 mat-dialog-title class="text-center">Delete Data</h1>
+    <div mat-dialog-content>
+      <p class="text-center">Are you sure?</p>  
+    </div>
+    <div mat-dialog-actions class="text-center">
+      <button style="margin-left: 10px" mat-button cdkFocusInitial (click)="dialogRef.close(false)">No</button>
+      <button style="margin-left: 5px" mat-button (click)="dialogRef.close(true)">Yes</button>
+    </div>
+    </div>
+    
+    <div *ngIf="!(messageToPrint == null)" class="text-center">
+        <h6>{{messageToPrint}}</h6>    
+        <button mat-button (click)="dialogRef.close()">Ok</button>
+    </div>

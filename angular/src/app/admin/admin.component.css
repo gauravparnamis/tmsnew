@@ -1,0 +1,109 @@
+h2 {
+  color: #212121;
+}
+
+
+
+.container-fluid {
+  width: 85%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-left: 15%;
+}
+
+
+
+.bg-light {
+  background-color: #3e90e2 !important;
+}
+.btn-outline-success {
+  color: #d7ecdc;
+  border-color: #f6fff8;
+}
+.btn-outline-success {
+  color: #d7ecdc;
+  border-color: #f6fff8;
+}
+h2{
+color: black;
+font-style: oblique;
+font-weight: bold;
+}
+
+
+span{
+font-size: 30px;
+text-align: center;
+font-weight: bold
+}
+
+
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+
+
+.profileimg{
+border-radius: 50%!important;
+width: 40%!important;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+.topnav a:not(:first-child), .dropdown .dropbtn {
+  display: none;
+}
+.topnav a.icon {
+  float: right;
+  display: block;
+}
+}
+
+@media screen and (max-width: 600px) {
+.topnav.responsive {position: relative;}
+.topnav.responsive .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.topnav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+.topnav.responsive .dropdown {float: none;}
+.topnav.responsive .dropdown-content {position: relative;}
+.topnav.responsive .dropdown .dropbtn {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+
+
+}

@@ -1,0 +1,29 @@
+<div class="formcontainer">
+  <div class="formbody">
+      <form [formGroup]="EmailForm" style="width:100%;">
+          <div class="header">Forget Password</div>
+          <div>
+              <mat-form-field style="width:100%;">
+                  <input type="email" class="form-control" pattern="" required formControlName="Email" matInput placeholder="Enter Register Email">
+              </mat-form-field>
+              <div *ngIf="f.Email.touched && f.Email.errors">
+                <span *ngIf="f.Email.errors.required">Email is a Required.</span>
+                <span *ngIf="!f.Email.errors.required && f.Email.errors.email">Field Must Caintain valid Email.</span>
+        </div>
+          </div>
+        
+          <span class="text-danger" *ngIf="invalidLogin">Please enter Valid Email.</span>
+          <div style="margin-top:40px;">
+              <button [disabled]="!EmailForm.valid" class="form-btn" (click)="Forgotpass()">Send Email</button>
+              
+          </div>
+          <div style="text-align: center;">                
+            {{successMessage}}
+        </div>
+      </form>
+  </div>
+
+  <div>
+     
+  </div>
+</div>

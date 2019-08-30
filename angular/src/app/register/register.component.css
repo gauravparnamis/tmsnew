@@ -1,0 +1,88 @@
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formbody{
+    display: flex;
+    width: 350px;
+    min-height: 200px;
+    background-color: white;
+    box-shadow:0 10px 15px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+
+  .header{
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 0px;      
+  }
+
+div > span {
+    font-size: 0.75rem;
+    color: firebrick;
+}
+.headerLogo[_ngcontent-c2] {
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    color: white;
+    margin: 0px auto;
+    margin-bottom: 0px!important;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}
+.form-btn-hollow {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: white;
+    background-color: #9177ad;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 80%;
+    margin : 0px auto;
+    height: 45px;
+    border-radius: 25px;
+    border: 1px solid #9177ad;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-btn {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 80%;
+    margin : 0px auto;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #9177ad;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+}

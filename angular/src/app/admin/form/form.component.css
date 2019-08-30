@@ -1,0 +1,308 @@
+button.mat-buttons {
+	margin: 0px 7px !important;
+}
+
+a.btn{
+  margin-top: 30%;
+}
+
+
+input[type="submit"]{
+  width: 100%;
+  margin-top: 50px;
+}
+.modal-close{
+  position: absolute;
+  top:10px;
+  right:10px;
+  padding:0;
+  margin:0;
+}
+
+
+
+/* @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+} */
+
+/* .mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  margin-left: 2px!important;
+  width: 180px;
+} */
+form
+  {
+    width: 50%;
+    margin: 0px auto;
+   background-color: white;
+       margin-top: 25px;
+       margin-bottom: 20px;
+
+
+  
+
+}
+
+
+
+.btn-danger{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+/* @-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+} */
+
+img{
+    width: 50px;    
+}
+
+
+
+
+
+	.btnedit{
+		margin-top: 13px;
+	}
+
+	
+    .mat-form-field {
+      display: inline-block;
+      position: relative;
+      text-align: left;
+      width: 100%!important;
+  }
+	  
+
+  .form-group {
+    margin-bottom: 15px;
+    padding: 0px 10px;
+}
+
+.mat-form-field-flex {
+    display: inline-flex;
+    align-items: baseline;
+    width: 100%;
+    font-size: 12px;
+}
+.form-group[_ngcontent-c1] {
+  margin-bottom: 15px;
+  padding: 0px 10px;
+  text-shadow: 0 0 black;
+  font-size: 13px;
+}
+
+.form-group[_ngcontent-c14] {
+  margin-bottom: 15px;
+  padding: 0px 10px;
+  font-size: 13px!important;
+}
+
+
+
+/* 
+.example-container {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: lightcoral;
+  } */
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+img{
+    width: 50%;
+}
+
+h2 {
+  color: #212121;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+}
+
+
+
+.btn-outline-success {
+  color: #d7ecdc;
+  border-color: #f6fff8;
+}
+.btn-outline-success {
+  color: #d7ecdc;
+  border-color: #f6fff8;
+}
+
+
+
+
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
+
+/* Optional: Style the caret down icon */
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+
+
+
+
+
+.topnav .icon {
+display: none;
+}
+
+
+.dropdown .dropbtn {
+font-size: 17px;    
+border: none;
+outline: none;
+color: white;
+padding: 14px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+float: none;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+a:hover { 
+  color: white;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+background-color: #555;
+color: white;
+}
+
+.dropdown-content a:hover {
+background-color: #ddd;
+color: black;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.profileimg{
+border-radius: 50%!important;
+width: 43%!important;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+.topnav a:not(:first-child), .dropdown .dropbtn {
+  display: none;
+}
+.topnav a.icon {
+  float: right;
+  display: block;
+}
+}
+
+@media screen and (max-width: 600px) {
+.topnav.responsive {position: relative;}
+.topnav.responsive .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.topnav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+.topnav.responsive .dropdown {float: none;}
+.topnav.responsive .dropdown-content {position: relative;}
+.topnav.responsive .dropdown .dropbtn {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+
+
+}
